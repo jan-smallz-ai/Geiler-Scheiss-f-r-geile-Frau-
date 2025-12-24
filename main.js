@@ -1,18 +1,35 @@
-const scene = document.getElementById('scene');
-const santa = document.querySelector('.sprite.santa');
-const cow   = document.querySelector('.sprite.cow');
+// main.js – Basis-Skript
+// Ziel: sicher laden + Klicks erkennen
 
-let taps = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const santa = document.querySelector(".sprite.santa");
+  const cow   = document.querySelector(".sprite.cow");
 
-function tap() {
-  taps++;
-  // Mini-Feedback, damit du siehst: es reagiert wirklich
-  scene.animate([{transform:'scale(1)'},{transform:'scale(1.01)'},{transform:'scale(1)'}], {duration:220});
-  if (taps >= 3) {
-    taps = 0;
-    alert('Okay okay… beruhigt! 😄');
+  let taps = 0;
+
+  function registerTap(targetName) {
+    taps++;
+    console.log(`Tap ${taps} auf ${targetName}`);
+
+    // kleines visuelles Feedback
+    document.body.animate(
+      [{ transform: "scale(1)" }, { transform: "scale(1.01)" }, { transform: "scale(1)" }],
+      { duration: 200 }
+    );
+
+    if (taps >= 3) {
+      taps = 0;
+      alert("Okay okay… beruhigt 😄");
+    }
   }
-}
 
-santa.addEventListener('click', tap);
-cow.addEventListener('click', tap);
+  if (santa) {
+    santa.addEventListener("click", () => registerTap("Santa"));
+  }
+
+  if (cow) {
+    cow.addEventListener("click", () => registerTap("Kuh"));
+  }
+
+  console.log("main.js geladen ✅");
+});
