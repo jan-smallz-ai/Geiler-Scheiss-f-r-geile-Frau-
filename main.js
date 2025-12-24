@@ -1,48 +1,47 @@
 (() => {
-  const goal = 3;
-  let taps = 0;
-  let unlocked = false;
-
-  const counter = document.getElementById("counter");
-  const reveal = document.getElementById("reveal");
-  const copyBtn = document.getElementById("copyBtn");
-  const copyMsg = document.getElementById("copyMsg");
-  const codeBox = document.getElementById("codeBox");
+  const countEl = document.getElementById("count");
+  const modal = document.getElementById("modal");
+  const btnClose = document.getElementById("btnClose");
 
   const santa = document.getElementById("imgSanta");
   const cow = document.getElementById("imgCow");
 
-  function setCounter() {
-    counter.textContent = `${taps} / ${goal}`;
+  let count = 0;
+  let locked = false;
+
+  function bump(el){
+    el.classList.remove("wobble");
+    // reflow trick
+    void el.offsetWidth;
+    el.classList.add("wobble");
   }
 
-  function unlock() {
-    unlocked = true;
-    reveal.classList.remove("hidden");
-  }
+  function addTap(el){
+    if (locked) return;
+    count++;
+    countEl.textContent = String(count);
+    bump(el);
 
-  function tap() {
-    if (unlocked) return;
-    taps = Math.min(goal, taps + 1);
-    setCounter();
-    if (taps >= goal) unlock();
-  }
-
-  // Tap auf Kuh oder Schlitten
-  santa.addEventListener("click", tap);
-  cow.addEventListener("click", tap);
-
-  // Copy
-  copyBtn.addEventListener("click", async () => {
-    const text = codeBox.textContent.trim();
-    try {
-      await navigator.clipboard.writeText(text);
-      copyMsg.textContent = "✅ Kopiert!";
-    } catch {
-      copyMsg.textContent = "❗Kopieren ging nicht – markier den Code manuell.";
+    if (count >= 3){
+      locked = true;
+      setTimeout(() => {
+        modal.hidden = false;
+      }, 220);
     }
-    setTimeout(() => (copyMsg.textContent = ""), 1500);
+  }
+
+  santa.addEventListener("click", () => addTap(santa));
+  cow.addEventListener("click", () => addTap(cow));
+
+  btnClose.addEventListener("click", () => {
+    modal.hidden = true;
   });
 
-  setCounter();
+  // Falls Bilder nicht laden (Dateiname falsch), siehst du es sofort in der Konsole – aber visuell setzen wir auch:
+  [santa, cow].forEach(img => {
+    img.addEventListener("error", () => {
+      img.style.outline = "3px solid red";
+      img.alt = "Bild lädt nicht: " + img.getAttribute("src");
+    });
+  });
 })();
