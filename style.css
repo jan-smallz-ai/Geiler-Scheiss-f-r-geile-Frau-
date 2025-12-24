@@ -1,10 +1,9 @@
 :root{
-  --bg1:#0b2c44;
-  --bg2:#071b2b;
-  --card:#0f2f49;
-  --card2:#0c2a41;
-  --text:#e9f3ff;
-  --muted:#b8d1ea;
+  --bg1:#0b2f47;
+  --bg2:#0a2235;
+  --card: rgba(255,255,255,0.08);
+  --card2: rgba(255,255,255,0.10);
+  --text:#eaf4ff;
 }
 
 *{ box-sizing:border-box; }
@@ -13,123 +12,101 @@ body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
-  background: radial-gradient(1200px 900px at 40% 0%, #114a73 0%, var(--bg1) 35%, var(--bg2) 100%);
+  background: radial-gradient(1200px 800px at 50% 0%, #1b5e8a 0%, var(--bg1) 45%, var(--bg2) 100%);
 }
 
-.wrap{
-  max-width: 560px;
+.app{
+  max-width: 720px;
   margin: 0 auto;
-  padding: 18px 16px 40px;
+  padding: 18px 14px 28px;
 }
 
-.top{ display:flex; flex-direction:column; gap:12px; }
+.header{ display:flex; flex-direction:column; gap:14px; }
 
 .pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius: 999px;
+  align-self:flex-start;
   background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.10);
-  width: fit-content;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .2px;
 }
 
 .bubble{
   background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 22px;
-  padding: 16px 16px;
+  padding: 16px 16px 18px;
 }
 
-.bubble-kicker{
+.bubble-title{
+  opacity:.9;
   font-weight:700;
-  color: var(--muted);
   margin-bottom: 6px;
 }
 
-h1{
-  margin:0;
-  font-size: 28px;
-  line-height: 1.15;
-}
-
-.card{
-  margin-top: 16px;
-  border-radius: 26px;
-  overflow:hidden;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+.bubble h1{
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.08;
 }
 
 .scene{
+  margin-top: 16px;
+  height: min(56vh, 520px);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.10);
   position: relative;
-  width: 100%;
-  height: 56vh;
-  min-height: 360px;
-  max-height: 520px;
-  overflow: hidden;
-  background: radial-gradient(900px 600px at 50% 20%, rgba(255,255,255,0.07), rgba(255,255,255,0) 60%);
+  overflow: hidden; /* wichtig: wir steuern die Position sauber, nix soll „wegfliegen“ */
 }
 
 .sprite{
   position:absolute;
-  image-rendering:auto;
+  bottom: 0;
+  height: auto;
   user-select:none;
   -webkit-user-drag:none;
-  pointer-events:auto;
-  filter: drop-shadow(0 18px 22px rgba(0,0,0,0.35));
   transform: translateZ(0);
-  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,0.35));
 }
 
-/* Positionen + Größen so, dass ALLES sichtbar ist */
-.sprite.santa{
-  left: -6%;
-  top: 12%;
-  width: 52%;
-  max-width: 360px;
+/* Größen + Positionen (damit ALLES sichtbar ist) */
+.santa{
+  left: -2%;
+  width: 42%;
+  bottom: 6%;
   z-index: 2;
-  animation: float1 3.8s ease-in-out infinite;
 }
 
-.sprite.cow{
-  left: 18%;
-  bottom: -6%;
-  width: 56%;
-  max-width: 420px;
-  z-index: 3;
-  animation: float2 3.2s ease-in-out infinite;
+.cow{
+  left: 30%;
+  width: 44%;
+  bottom: 3%;
+  z-index: 3; /* Kuh bewusst nach vorne */
 }
 
-.sprite.tree{
+.tree{
   right: -4%;
-  bottom: -10%;
-  width: 48%;
-  max-width: 360px;
+  width: 40%;
+  bottom: 0%;
   z-index: 1;
-  animation: float1 4.4s ease-in-out infinite;
-}
-
-@keyframes float1{
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-10px); }
-}
-@keyframes float2{
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-7px); }
 }
 
 .hint{
   margin-top: 18px;
+  padding: 14px 4px 0;
 }
+
 .hint h2{
-  margin:0;
+  margin: 0 0 6px 0;
   font-size: 34px;
   line-height: 1.05;
 }
+
 .hint p{
-  margin:10px 0 0;
-  color: var(--muted);
+  margin: 0;
+  opacity: .9;
   font-size: 16px;
 }
