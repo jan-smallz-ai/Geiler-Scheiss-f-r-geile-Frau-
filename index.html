@@ -6,28 +6,24 @@
   <title>Michelles Geschenk</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <main class="wrap">
-    <header class="top">
-      <div class="pill">🎅 <strong>Weihnachtsmann</strong></div>
+  <main class="app">
+    <header class="header">
+      <div class="pill">🎅 Weihnachtsmann</div>
       <div class="bubble">
-        <div class="bubble-kicker">Weihnachtsmann</div>
+        <div class="bubble-title">Weihnachtsmann</div>
         <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
       </div>
     </header>
 
-    <section class="card">
-      <div class="scene" id="scene">
-        <!-- Bilder liegen im ROOT deines Repos: santa.png / cow.png / tree.png -->
-        <img class="sprite santa" src="santa.png" alt="Santa" draggable="false" />
-        <img class="sprite cow"   src="cow.png"   alt="Kuh" draggable="false" />
-        <img class="sprite tree"  src="tree.png"  alt="Baum" draggable="false" />
-      </div>
+    <section class="scene" aria-label="Szene">
+      <img id="santaImg" class="sprite santa" src="santa.png" alt="Weihnachtsmann im Schlitten" />
+      <img id="cowImg" class="sprite cow" src="cow.png" alt="Kuh" />
+      <img id="treeImg" class="sprite tree" src="tree.png" alt="Weihnachtsbaum" />
     </section>
 
     <section class="hint">
-      <h2>Tippe 3× auf die Kuh oder den Schlitten</h2>
+      <h2>Tippe 3× auf die Kühe oder den Schlitten</h2>
       <p>…um sie zu beruhigen, bevor alles im Chaos endet.</p>
     </section>
   </main>
