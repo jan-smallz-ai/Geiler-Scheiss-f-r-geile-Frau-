@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Michelles Geschenk 🎄</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="wrap" id="app" aria-live="polite">
+    <section class="card">
+      <header class="top">
+        <div class="badge" id="badge">🎅 Weihnachtsmann</div>
+        <div class="bubble" id="bubble" role="dialog" aria-label="Sprechblase">
+          <div class="bubble-title" id="bubbleTitle">Weihnachtsmann</div>
+          <div class="bubble-text" id="bubbleText">Hilfe! Meine Kühe sind außer Kontrolle!</div>
+          <div class="bubble-tail"></div>
+        </div>
+      </header>
+
+      <div class="stage">
+        <div class="stage-frame">
+          <div id="sceneHost" class="sceneHost"></div>
+
+          <!-- Snow-wipe Overlay -->
+          <div id="snowOverlay" class="snowOverlay hidden" aria-hidden="true">
+            <canvas id="snowCanvas"></canvas>
+            <div class="snowHint">
+              <div class="snowHintTitle">Wisch den Schnee komplett weg ❄️</div>
+              <div class="snowHintSub">Erst bei <b>100%</b> geht’s weiter.</div>
+              <div class="progressRow">
+                <div class="progressBar"><div id="progressFill" class="progressFill"></div></div>
+                <div class="progressText" id="progressText">0%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Finale Overlay -->
+          <div id="finalOverlay" class="finalOverlay hidden" aria-hidden="true">
+            <div class="finalCard">
+              <div class="finalTitle">Michelle… du hast Weihnachten gerettet! ✨</div>
+              <div class="finalSub">Hier ist dein Geschenk 🎁</div>
+
+              <div class="giftRow">
+                <button class="giftBtn" id="revealBtn" type="button">🎁 Geschenk öffnen</button>
+                <div class="codeBox" id="codeBox" aria-label="Gutschein-Code" title="Zum Kopieren tippen">
+                  <span class="codeLabel">Steam-Code:</span>
+                  <span class="codeValue" id="codeValue">XXXX-XXXX-XXXX</span>
+                </div>
+              </div>
+
+              <div class="tinyNote">Tipp: Auf den Code tippen → kopiert.</div>
+              <button class="smallBtn" id="restartBtn" type="button">Nochmal ansehen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="bottom">
+        <div class="taskTitle" id="taskTitle">Tippe 3× auf die Kühe oder den Schlitten</div>
+        <div class="taskSub" id="taskSub">…um sie zu beruhigen, bevor alles im Schnee endet.</div>
+
+        <div class="ctaRow">
+          <button class="cta" id="ctaTap" type="button">Hier tippen (falls Mobile zickt)</button>
+          <div class="counter" id="counter">0 / 3</div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="art.js"></script>
+  <script src="main.js"></script>
+</body>
+                </html>
