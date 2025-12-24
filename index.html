@@ -1,35 +1,40 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Michelles Geschenk</title>
 
-  <link rel="stylesheet" href="./style.css?v=1" />
+  <link rel="stylesheet" href="./style.css">
+  <script src="./main.js" defer></script>
 </head>
+
 <body>
   <main class="app">
+
     <header class="top">
-      <div class="badge">🎅 Weihnachtsmann</div>
-      <div class="speech">
-        <div class="speech__small">Weihnachtsmann</div>
-        <div class="speech__big">Hilfe! Meine Kühe sind außer Kontrolle!</div>
+      <div class="pill">🎅 Weihnachtsmann</div>
+
+      <div class="bubble">
+        <div class="bubble-small">Weihnachtsmann</div>
+        <div class="bubble-big">
+          Hilfe! Meine Kühe sind außer Kontrolle!
+        </div>
       </div>
     </header>
 
-    <section class="stage" aria-label="Szene">
-      <!-- Wichtig: Ordnername ist Assets (Groß A) -->
-      <img id="santa" class="sprite" src="./Assets/SantaAndSleigh.svg?v=1" alt="Santa" />
-      <img id="cow"   class="sprite" src="./Assets/Holstein-Cow-.svg?v=1" alt="Kuh" />
-      <img id="tree"  class="sprite" src="./Assets/jean_victor_balin_sapin_02_xmas.svg?v=1" alt="Baum" />
+    <section class="stage">
+      <!-- BILDER LIEGEN IM ROOT -->
+      <img class="sprite santa" src="./santa.png" alt="Santa mit Schlitten">
+      <img class="sprite cow"   src="./cow.png"   alt="Kuh">
+      <img class="sprite tree"  src="./tree.png"  alt="Weihnachtsbaum">
     </section>
 
-    <section class="hint">
-      <div class="hint__title">Tippe 3× auf die Kuh oder den Schlitten</div>
-      <div class="hint__sub">…um sie zu beruhigen (Test-Step, Animation kommt gleich).</div>
+    <section class="bottom">
+      <h2>Tippe 3× auf die Kuh oder den Schlitten</h2>
+      <p>…um sie zu beruhigen, bevor alles im Chaos endet.</p>
     </section>
+
   </main>
-
-  <script src="./main.js?v=1"></script>
 </body>
 </html>
