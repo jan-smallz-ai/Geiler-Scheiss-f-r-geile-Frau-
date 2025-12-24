@@ -3,57 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Michelles Geschenk</title>
-  <link rel="stylesheet" href="./style.css?v=8" />
+  <title>Michelles Geschenk 🎄</title>
+
+  <!-- Cache-Buster: sorgt dafür, dass GitHub Pages NICHT die alte CSS/JS Version nimmt -->
+  <link rel="stylesheet" href="./style.css?v=7" />
 </head>
 
 <body>
-  <main class="app">
+  <div class="app">
     <header class="top">
-      <div class="pill">🎅 Weihnachtsmann</div>
-
-      <div class="speech">
-        <div class="who">Weihnachtsmann</div>
-        <div class="text">Hilfe! Meine Kühe sind außer Kontrolle!</div>
-      </div>
+      <div class="badge">🎅 Weihnachtsmann</div>
+      <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
+      <p class="sub">Tippe <b>3×</b> auf die Kuh <b>oder</b> den Schlitten, um sie zu beruhigen…</p>
     </header>
 
-    <section class="card">
+    <main class="card">
       <div class="scene" id="scene" aria-label="Szene">
-        <img class="sprite sprite-santa" id="santa" src="./santa.png?v=8" alt="Santa im Schlitten">
-        <img class="sprite sprite-cow" id="cow" src="./cow.png?v=8" alt="Kuh">
-        <img class="sprite sprite-tree" id="tree" src="./tree.png?v=8" alt="Weihnachtsbaum">
+        <img id="imgSanta" class="sprite santa" src="./santa.png" alt="Schlitten" draggable="false" />
+        <img id="imgCow" class="sprite cow" src="./cow.png" alt="Kuh" draggable="false" />
+        <img id="imgTree" class="sprite tree" src="./tree.png" alt="Tannenbaum" draggable="false" />
 
-        <div class="hint-bubble" id="hintBubble">
-          Tippe <b>3×</b> auf die <b>Kuh</b> oder den <b>Schlitten</b>…
+        <div class="counter" id="counter">0 / 3</div>
+
+        <div class="reveal hidden" id="reveal">
+          <div class="revealBox">
+            <h2>🎁 Geschenk freigeschaltet!</h2>
+            <p class="small">Hier kommt gleich dein Code rein (kannst du später 1:1 austauschen).</p>
+
+            <div class="codeBox" id="codeBox">STEAM-CODE-HIER-EINFÜGEN</div>
+
+            <button class="btn" id="copyBtn">Code kopieren</button>
+            <div class="tiny" id="copyMsg"></div>
+          </div>
         </div>
       </div>
-    </section>
+    </main>
 
-    <section class="bottom">
-      <h1>Tippe 3× auf die Kuh oder den Schlitten</h1>
-      <p>…um sie zu beruhigen, bevor alles im Chaos endet..</p>
+    <footer class="foot">Made for Michelle • 🎅🖤</footer>
+  </div>
 
-      <div class="progress">
-        <div class="dots" aria-hidden="true">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        </div>
-        <div class="count"><span id="count">0</span> / 3</div>
-      </div>
-
-      <div class="reveal" id="reveal" hidden>
-        <div class="reveal-card">
-          <div class="reveal-title">🎁 Dein Geschenk</div>
-          <div class="reveal-text">Steam-Code kommt hier rein:</div>
-          <div class="code" id="steamCode">XXXX-XXXX-XXXX</div>
-          <button class="btn" id="copyBtn" type="button">Code kopieren</button>
-        </div>
-      </div>
-
-      <footer class="footer">Made for Michelle • 🎅🖤</footer>
-    </section>
-  </main>
-
-  <script src="./main.js?v=8"></script>
+  <script src="./main.js?v=7"></script>
 </body>
 </html>
