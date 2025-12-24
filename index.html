@@ -2,32 +2,112 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Michelles Geschenk</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="app">
-    <header class="header">
-      <div class="pill">🎅 Weihnachtsmann</div>
-      <div class="bubble">
-        <div class="bubble-title">Weihnachtsmann</div>
-        <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
+  <canvas id="snowBg" aria-hidden="true"></canvas>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="pill">
+        <span class="emoji" aria-hidden="true">🎅</span>
+        <span class="pillText">Weihnachtsmann</span>
       </div>
+
+      <section class="speech">
+        <div class="speechSmall">Weihnachtsmann</div>
+        <h1 class="speechBig">Hilfe! Meine Kühe sind außer Kontrolle!</h1>
+        <p class="speechSub">Beruhige sie schnell – sonst wird’s chaotisch…</p>
+      </section>
     </header>
 
-    <section class="scene" aria-label="Szene">
-      <img id="santaImg" class="sprite santa" src="santa.png" alt="Weihnachtsmann im Schlitten" />
-      <img id="cowImg" class="sprite cow" src="cow.png" alt="Kuh" />
-      <img id="treeImg" class="sprite tree" src="tree.png" alt="Weihnachtsbaum" />
+    <!-- STEP 1: Szene -->
+    <section class="card sceneCard">
+      <div class="scene" id="scene">
+        <img id="imgSanta" class="asset santa" src="./santa.png" alt="Schlitten" draggable="false" />
+        <div class="cowWrap">
+          <img id="imgCow" class="asset cow" src="./cow.png" alt="Kuh" draggable="false" />
+          <!-- Weihnachtsmütze (SVG) -->
+          <div class="cowHat" aria-hidden="true">
+            <svg viewBox="0 0 220 170" width="100%" height="100%">
+              <path d="M30 120 C55 78, 120 40, 190 52 C158 74, 132 105, 122 134 C95 135, 65 132, 30 120 Z" fill="#c8162b"/>
+              <path d="M40 120 C75 135, 125 142, 170 132 C165 150, 150 162, 130 165 C95 168, 65 160, 40 120 Z" fill="#ffffff" opacity="0.95"/>
+              <circle cx="188" cy="58" r="18" fill="#ffffff"/>
+            </svg>
+          </div>
+        </div>
+        <img id="imgTree" class="asset tree" src="./tree.png" alt="Weihnachtsbaum" draggable="false" />
+        <div class="floorGlow" aria-hidden="true"></div>
+      </div>
     </section>
 
-    <section class="hint">
-      <h2>Tippe 3× auf die Kühe oder den Schlitten</h2>
-      <p>…um sie zu beruhigen, bevor alles im Chaos endet.</p>
+    <!-- STEP UI -->
+    <section class="steps">
+      <h2 id="stepTitle">Tippe 3× auf die Kuh <span class="muted">oder</span> den Schlitten</h2>
+      <p id="stepHint">…um sie zu beruhigen, bevor alles im Chaos endet.</p>
+
+      <div class="progressRow">
+        <div class="dots" aria-hidden="true">
+          <span class="dot on" id="dot1"></span>
+          <span class="dot" id="dot2"></span>
+          <span class="dot" id="dot3"></span>
+        </div>
+        <div class="counter" id="tapCounter">0 / 3</div>
+      </div>
     </section>
+
+    <!-- STEP 2: Schnee wegwischen -->
+    <section class="card revealCard" id="revealCard" hidden>
+      <div class="revealHeader">
+        <div class="revealTitle">Schnee wegwischen</div>
+        <div class="revealSub">Wisch über das Feld, bis der Code sichtbar wird.</div>
+      </div>
+
+      <div class="wipeArea" id="wipeArea">
+        <div class="underMessage" id="underMessage">
+          <div class="underKicker">🎁 Überraschung!</div>
+          <div class="underBig">Du hast’s geschafft.</div>
+          <div class="underSmall">Noch ein bisschen… dann siehst du den Gutschein.</div>
+        </div>
+        <canvas id="wipeCanvas"></canvas>
+      </div>
+
+      <div class="revealFooter">
+        <button class="btn ghost" id="skipWipeBtn" type="button">Überspringen</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Code Reveal -->
+    <section class="card codeCard" id="codeCard" hidden>
+      <div class="codeHead">
+        <div class="codeTitle">Dein Gutschein</div>
+        <div class="codeSub">Kopieren und einlösen 🎄</div>
+      </div>
+
+      <div class="codeBox" id="codeBox" role="button" tabindex="0" aria-label="Code anzeigen">
+        <div class="codeFront">Tippe zum Aufdecken</div>
+        <div class="codeBack">
+          <div class="codeLabel">STEAM-CODE</div>
+          <div class="codeValue" id="codeValue">STEAM-XXXX-XXXX-XXXX</div>
+          <div class="codeNote">Den echten Code tragen wir später ein.</div>
+        </div>
+      </div>
+
+      <div class="codeActions">
+        <button class="btn" id="copyBtn" type="button">Code kopieren</button>
+        <button class="btn ghost" id="restartBtn" type="button">Nochmal</button>
+      </div>
+
+      <p class="tinyNote">Wenn Kopieren nicht geht: Code lange antippen und markieren.</p>
+    </section>
+
+    <footer class="foot">
+      <span class="tiny">Made for Michelle · 🎅🖤</span>
+    </footer>
   </main>
 
-  <script src="main.js"></script>
+  <script src="./main.js"></script>
 </body>
-</html>
+  </html>
