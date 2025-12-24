@@ -1,57 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michelles Geschenk 🎄</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michelles Geschenk</title>
+  <link rel="stylesheet" href="./style.css?v=1">
 </head>
 
 <body>
-  <main class="app">
-
+  <div class="app">
     <header class="topbar">
-      <span class="tab active">🎅 Weihnachtsmann</span>
+      <div class="pill">🎅 Weihnachtsmann</div>
     </header>
 
-    <section class="card">
-      <div class="speech">
-        <div class="speaker">Weihnachtsmann</div>
-        <div class="text">
-          Hilfe! Meine Kühe sind außer Kontrolle!
-        </div>
-      </div>
+    <main class="content">
+      <section class="card speech">
+        <div class="speech-title">Weihnachtsmann</div>
+        <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
+      </section>
 
-      <div class="scene">
-        <img
-          class="santa"
-          src="Assets/SantaAndSleigh.svg"
-          alt="Santa im Schlitten"
-        />
+      <section class="stage card">
+        <!-- WICHTIG: Pfade müssen exakt so heißen wie deine Dateien -->
+        <img class="sprite santa" src="./Assets/SantaAndSleigh.svg" alt="Santa" draggable="false">
+        <img class="sprite cow"   src="./Assets/Holstein-Cow-.svg" alt="Kuh" draggable="false">
+        <img class="sprite tree"  src="./Assets/jean_victor_balin_sapin_02_xmas.svg" alt="Baum" draggable="false">
+      </section>
 
-        <img
-          class="cow"
-          src="Assets/Holstein-Cow-.svg"
-          alt="Kuh"
-        />
+      <section class="hint">
+        <div class="hint-title">Tippe 3× auf die Kuh oder den Schlitten</div>
+        <div class="hint-sub">…um sie zu beruhigen, bevor alles im Schnee versinkt.</div>
+      </section>
+    </main>
+  </div>
 
-        <img
-          class="tree"
-          src="Assets/jean_victor_balin_sapin_02_xmas.svg"
-          alt="Weihnachtsbaum"
-        />
-      </div>
-    </section>
-
-    <footer class="hint">
-      <div class="hint-title">Tippe 3× auf die Kuh oder den Schlitten</div>
-      <div class="hint-sub">
-        …um das Chaos zu stoppen 🎁
-      </div>
-    </footer>
-
-  </main>
-
-  <script src="main.js"></script>
+  <script src="./main.js?v=1"></script>
 </body>
 </html>
