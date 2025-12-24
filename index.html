@@ -1,40 +1,37 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Michelles Geschenk</title>
-
-  <link rel="stylesheet" href="./style.css">
-  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="app">
-
+  <main class="wrap">
     <header class="top">
-      <div class="pill">🎅 Weihnachtsmann</div>
-
+      <div class="pill">🎅 <strong>Weihnachtsmann</strong></div>
       <div class="bubble">
-        <div class="bubble-small">Weihnachtsmann</div>
-        <div class="bubble-big">
-          Hilfe! Meine Kühe sind außer Kontrolle!
-        </div>
+        <div class="bubble-kicker">Weihnachtsmann</div>
+        <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
       </div>
     </header>
 
-    <section class="stage">
-      <!-- BILDER LIEGEN IM ROOT -->
-      <img class="sprite santa" src="./santa.png" alt="Santa mit Schlitten">
-      <img class="sprite cow"   src="./cow.png"   alt="Kuh">
-      <img class="sprite tree"  src="./tree.png"  alt="Weihnachtsbaum">
+    <section class="card">
+      <div class="scene" id="scene">
+        <!-- Bilder liegen im ROOT deines Repos: santa.png / cow.png / tree.png -->
+        <img class="sprite santa" src="santa.png" alt="Santa" draggable="false" />
+        <img class="sprite cow"   src="cow.png"   alt="Kuh" draggable="false" />
+        <img class="sprite tree"  src="tree.png"  alt="Baum" draggable="false" />
+      </div>
     </section>
 
-    <section class="bottom">
+    <section class="hint">
       <h2>Tippe 3× auf die Kuh oder den Schlitten</h2>
       <p>…um sie zu beruhigen, bevor alles im Chaos endet.</p>
     </section>
-
   </main>
+
+  <script src="main.js"></script>
 </body>
 </html>
