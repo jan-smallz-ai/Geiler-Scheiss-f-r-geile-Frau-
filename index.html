@@ -4,34 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Michelles Geschenk</title>
-  <link rel="stylesheet" href="./style.css?v=1">
-</head>
 
+  <link rel="stylesheet" href="./style.css?v=1" />
+</head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="pill">🎅 Weihnachtsmann</div>
+  <main class="app">
+    <header class="top">
+      <div class="badge">🎅 Weihnachtsmann</div>
+      <div class="speech">
+        <div class="speech__small">Weihnachtsmann</div>
+        <div class="speech__big">Hilfe! Meine Kühe sind außer Kontrolle!</div>
+      </div>
     </header>
 
-    <main class="content">
-      <section class="card speech">
-        <div class="speech-title">Weihnachtsmann</div>
-        <h1>Hilfe! Meine Kühe sind außer Kontrolle!</h1>
-      </section>
+    <section class="stage" aria-label="Szene">
+      <!-- Wichtig: Ordnername ist Assets (Groß A) -->
+      <img id="santa" class="sprite" src="./Assets/SantaAndSleigh.svg?v=1" alt="Santa" />
+      <img id="cow"   class="sprite" src="./Assets/Holstein-Cow-.svg?v=1" alt="Kuh" />
+      <img id="tree"  class="sprite" src="./Assets/jean_victor_balin_sapin_02_xmas.svg?v=1" alt="Baum" />
+    </section>
 
-      <section class="stage card">
-        <!-- WICHTIG: Pfade müssen exakt so heißen wie deine Dateien -->
-        <img class="sprite santa" src="./Assets/SantaAndSleigh.svg" alt="Santa" draggable="false">
-        <img class="sprite cow"   src="./Assets/Holstein-Cow-.svg" alt="Kuh" draggable="false">
-        <img class="sprite tree"  src="./Assets/jean_victor_balin_sapin_02_xmas.svg" alt="Baum" draggable="false">
-      </section>
-
-      <section class="hint">
-        <div class="hint-title">Tippe 3× auf die Kuh oder den Schlitten</div>
-        <div class="hint-sub">…um sie zu beruhigen, bevor alles im Schnee versinkt.</div>
-      </section>
-    </main>
-  </div>
+    <section class="hint">
+      <div class="hint__title">Tippe 3× auf die Kuh oder den Schlitten</div>
+      <div class="hint__sub">…um sie zu beruhigen (Test-Step, Animation kommt gleich).</div>
+    </section>
+  </main>
 
   <script src="./main.js?v=1"></script>
 </body>
